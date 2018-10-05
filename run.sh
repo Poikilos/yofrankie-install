@@ -2,6 +2,7 @@
 if [ ! -f "release249a.md5" ]; then
   wget https://download.blender.org/release/Blender2.49a/release249a.md5
 fi
+#OpenSUSE build system has YoFrankie, but whether the package works (which may require a really old version of deps) is unknown: https://build.opensuse.org/package/show/games/yofrankie?rev=1
 if [ ! -d "yofrankie_src" ]; then
   svn co https://svn.blender.org/svnroot/yofrankie/trunk
   mv trunk yofrankie_src
