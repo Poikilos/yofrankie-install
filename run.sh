@@ -33,14 +33,16 @@ if [ ! -d "blender-2.49a-linux-glibc236-py26-x86_64" ]; then
   tar -xf blender-2.49a-linux-glibc236-py26-x86_64.tar.bz2
   mv trunk blender-2.49a-linux-glibc236-py26-x86_64
 fi
-./blender-2.49a-linux-glibc236-py26-x86_64/blenderplayer yofrankie_src/yo_frankie_stub.blend
-
-
-
-exit 0
-if [ ! -d "yofrankie_1_1b_bge" ]; then
-  unzip yofrankie_bge.zip
+if [ "`command -v padsp`" ]; then
+  padsp ./blender-2.49a-linux-glibc236-py26-x86_64/blenderplayer yofrankie_src/yo_frankie_stub.blend
+else
+  echo "Your system is missing padsp! Without that, you will have no sound unless you have the old alsa-oss package or older oss."
+  ./blender-2.49a-linux-glibc236-py26-x86_64/blenderplayer yofrankie_src/yo_frankie_stub.blend
 fi
-cd yofrankie_1_1b_bge/yofrankie_1_1b_bge
-chmod +x yofrankie-linux-x86_64.bin
+
+#if [ ! -d "yofrankie_1_1b_bge" ]; then
+  #unzip yofrankie_bge.zip
+#fi
+#cd yofrankie_1_1b_bge/yofrankie_1_1b_bge
+#chmod +x yofrankie-linux-x86_64.bin
 #./yofrankie-linux-x86_64.bin
